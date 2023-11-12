@@ -1,0 +1,130 @@
+.ventSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.ventList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.ventItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background-color: var(--secondary-color);
+  border-radius: var(--br-2xl);
+  padding: 1.5rem;
+  font-size: 1.2rem;
+  width: 100%;
+}
+
+.ventCheckbox {
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid var(--accent-color);
+  border-radius: var(--br-lg);
+  cursor: pointer;
+}
+
+.ventCheckbox.checked {
+  background-color: var(--accent-color);
+  background-image: url('https://assets.website-files.com/6115beb90ba52ed7fd418b93/6115d9d2a9d14f72c43355c5_icon-check-dark-small.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.ventCheckbox.checked + div span.ventText {
+  text-decoration: line-through;
+}
+
+.ventDateline {
+  display: flex;
+  align-items: center;
+  margin-top: 0.375rem;
+  color: var(--accent-color);
+}
+
+.ventCheckbox.checked + div .ventDateline {
+  color: var(--gray-color);
+  opacity: 0.5;
+}
+
+.ventDateline .calendarIcon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.ventDateline span {
+  margin-left: 0.375rem;
+  font-size: var(--fs-sm);
+}
+
+.ventItem .trashIcon {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: var(--accent-color);
+}
+
+.trashIcon {
+  cursor: pointer;
+}
+
+.trashIcon.checked {
+  cursor: not-allowed;
+}
+
+.ventItem .iconContainer {
+  margin-left: auto;
+}
+
+.ventViewToggle {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .ventViewButton {
+    background-color: var(--secondary-color);
+    border: 2px solid var(--accent-color);
+    border-radius: var(--br-2xl);
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    color: var(--accent-color);
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  .ventViewButton:hover {
+    background-color: var(--accent-color);
+    color: var(--secondary-color);
+  }
+
+  .address {
+    font-size: 0.8rem;
+    margin-top: 10px;
+    color: var(--accent-color);
+  }
+
+  .addressContainer {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .contentContainer {
+    width: 100%;
+  }
+
+  .address a {
+    text-decoration: none;
+    color: var(--accent-color);
+    transform: color 0.3s;
+  }
+
+  .address a:hover {
+    color: blue;
+  }

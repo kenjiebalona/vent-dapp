@@ -1,0 +1,80 @@
+{
+  "version": "0.1.0",
+  "name": "vent",
+  "constants": [
+    {
+      "name": "USER_TAG",
+      "type": "bytes",
+      "value": "[85, 83, 69, 82, 95, 83, 84, 65, 84, 69]"
+    },
+    {
+      "name": "VENT_TAG",
+      "type": "bytes",
+      "value": "[86, 69, 78, 84, 95, 83, 84, 65, 84, 69]"
+    }
+  ],
+  "instructions": [
+    {
+      "name": "initializeUser",
+      "accounts": [
+        { "name": "authority", "isMut": true, "isSigner": true },
+        { "name": "userProfile", "isMut": true, "isSigner": false },
+        { "name": "systemProgram", "isMut": false, "isSigner": false }
+      ],
+      "args": []
+    },
+    {
+      "name": "addVent",
+      "accounts": [
+        { "name": "authority", "isMut": true, "isSigner": true },
+        { "name": "userProfile", "isMut": true, "isSigner": false },
+        { "name": "ventAccount", "isMut": true, "isSigner": false },
+        { "name": "systemProgram", "isMut": false, "isSigner": false }
+      ],
+      "args": [{ "name": "content", "type": "string" }]
+    },
+    {
+      "name": "removeVent",
+      "accounts": [
+        { "name": "authority", "isMut": true, "isSigner": true },
+        { "name": "userProfile", "isMut": true, "isSigner": false },
+        { "name": "ventAccount", "isMut": true, "isSigner": false },
+        { "name": "systemProgram", "isMut": false, "isSigner": false }
+      ],
+      "args": [{ "name": "todoIdx", "type": "u8" }]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "UserProfile",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          { "name": "authority", "type": "publicKey" },
+          { "name": "lastVent", "type": "u8" },
+          { "name": "ventCount", "type": "u8" }
+        ]
+      }
+    },
+    {
+      "name": "VentAccount",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          { "name": "authority", "type": "publicKey" },
+          { "name": "idx", "type": "u8" },
+          { "name": "content", "type": "string" }
+        ]
+      }
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "Unauthorized",
+      "msg": "You are not authorized to perform this action."
+    },
+    { "code": 6001, "name": "NotAllowed", "msg": "Not allowed." },
+    { "code": 6002, "name": "VentNotEmpty", "msg": "Vent can't be empty." }
+  ]
+}
